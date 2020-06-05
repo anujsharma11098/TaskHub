@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 const router = express.Router()
 
-const event = require('../models/todo')
+const Task = require('../models/todo')
 
 const authUser = require('../middleware/authUser')
 
@@ -42,6 +42,22 @@ router.get('/', async (req, res) => {
     ])
 
     res.json({ status: 200, events })
+})
+
+
+router.delete('/:id', authUser, async (req, res) => {
+    try {
+        const task = await Task.findOne({ _id: req.params.id })
+        if (!task)
+            return res.status(404).json({ status: 404, message: 'Task not found' })
+        await complaint.remove()
+        res.json({ status: 200, message: 'Deleted Successfully' })
+    } catch (err) {
+        if (err.message.includes('Cast to ObjectId failed for value'))
+            return res.status(404).json({ status: 404, message: 'task not found' })
+        console.log(err)
+        res.status(500).json({ status: 500, message: 'Internal Server Error' })
+    }
 })
 
 module.exports = router
