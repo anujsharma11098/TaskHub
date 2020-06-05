@@ -5,8 +5,8 @@ const TaskSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    phoneNumber: {
-        type: Number,
+    description: {
+        type: String,
         required: true,
         unique: true
     },
@@ -15,8 +15,12 @@ const TaskSchema = new mongoose.Schema({
         required: true
 
     },
-    password: {
-        type: String,
+    dueDate: {
+        type: Date,
+        required: true
+    },
+    status:{
+        type: Number,
         required: true
     }
 }, {
