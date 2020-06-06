@@ -83,8 +83,8 @@ router.get('/status/:email', async (req, res) => {
         email:req.params.email
     })
 
-    let Ongoing = events.filter(e => e.status === '0').length
-    let Completed = events.filter(e => e.status === '1').length
+    let Ongoing = events.filter(e => e.status === 0).length
+    let Completed = events.filter(e => e.status === 1).length
     console.log(Ongoing)
     console.log(Completed)
     
