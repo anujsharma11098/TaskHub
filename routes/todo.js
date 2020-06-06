@@ -55,11 +55,11 @@ router.get('/:email', async (req, res) => {
 })
 
 
-router.get('/analysis/:email',authUser, async (req, res) => {
+router.get('/analysis/:email', async (req, res) => {
     
     let events
 
-    events = await interest.find({
+    events = await Task.find({
         email:req.params.email
     })
 
