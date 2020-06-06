@@ -13,7 +13,7 @@ router.post('/', authUser, async (req, res) => {
     // res.json({ status: 200, message: 'Done' })
     const { task, dueDate, description, taskType, status } = req.body
     try {
-        await event.create({
+        await Task.create({
             userId: req.user._id, task, dueDate, description, taskType, status
         })
         res.status(201).json({ status: 201, message: 'Task created Successfully!' })
@@ -24,8 +24,8 @@ router.post('/', authUser, async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-    let events
-    events = await event.aggregate([
+    let tasks
+    tasks = await Task.aggregate([
 
         {
             $lookup: {
@@ -41,7 +41,17 @@ router.get('/', async (req, res) => {
         }
     ])
 
-    res.json({ status: 200, events })
+    res.json({ status: 200, tasks })
+})
+
+
+router.get('/:id', async (req, res) => {
+    let tasks
+    tasks = await Task.find({
+        _id : req.params.id
+    })
+
+    res.json({ status: 200, tasks })
 })
 
 

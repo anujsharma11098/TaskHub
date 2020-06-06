@@ -21,16 +21,23 @@ Content-Type: application/json
 
 GET http://localhost:5000/api/todo 
 
+
+###
+### Get all Task by id
+
+GET http://localhost:5000/api/todo/5edb2556a28b632540c4da3e
+
+
 ### Task registered
 
 POST http://localhost:5000/api/todo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wiX2lkXCI6XCI1ZWRiMjM0OGU5NjYzMzFiMTA3ZmUwZWFcIixcImZ1bGxOYW1lXCI6XCJBbnVqIFNoYXJtYVwiLFwicGhvbmVOdW1iZXJcIjo3NzI2MDYyNTQwLFwiZW1haWxcIjpcImFudWpzaGFybWExMTA5OEBnbWFpbC5jb21cIixcInBhc3N3b3JkXCI6XCIkMmEkMTAkVzZYdW85cTJNeDR4ZjNscUsuY0FlZVZFVFhWWGVQZ1lXbS5rY3JMNVl2VFhhZXJhdjZpZi5cIixcImNyZWF0ZWRBdFwiOlwiMjAyMC0wNi0wNlQwNTowMjowMC40MTBaXCIsXCJ1cGRhdGVkQXRcIjpcIjIwMjAtMDYtMDZUMDU6MDI6MDAuNDEwWlwiLFwiX192XCI6MH0iLCJpYXQiOjE1OTE0MTk5NzJ9.1L9fI7RpnFr1Q6_kNRw-ne59FGNTtThhkwDhXUch07s
 Content-Type: application/json
 
 {
-    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wiX2lkXCI6XCI1ZWQ2N2I1ODE5M2FlYjA1Y2MxZmU4ZTJcIixcImZ1bGxOYW1lXCI6XCJBbnVqIFNoYXJtYVwiLFwicGhvbmVOdW1iZXJcIjo3NzI2MDYyNTQwLFwiZW1haWxcIjpcImFudWpzaGFybWExMTA5OEBnbWFpbC5jb21cIixcInBhc3N3b3JkXCI6XCIkMmEkMTAkRFJUNEZtdkJJeUJleDc2RzZrdHZCdXJOWXc0R1hxclZPWHJQM1dLaC9MbEtDZjh1bnBhNjJcIixcImNyZWF0ZWRBdFwiOlwiMjAyMC0wNi0wMlQxNjoxNjoyNC4zOTFaXCIsXCJ1cGRhdGVkQXRcIjpcIjIwMjAtMDYtMDJUMTY6MTY6MjQuMzkxWlwiLFwiX192XCI6MH0iLCJpYXQiOjE1OTExMTQ1ODR9.xKbeWneGsT7LoginTSX2oCwPNAQHigo5w7sgpUDby_Q",
-    "task" : "GDG",
-    "description":"pappu ka Ghar",
+    "task" : "Project",
+    "description":"Complete the work before deadline",
     "dueDate" : "2020-06-20",
-    "status":"Free",
-    "taskType":"writing"
+    "status":"0",
+    "taskType":"Work"
 }
