@@ -164,38 +164,6 @@
           </div>
             </div>
 
-            <div class="col-md-6" style="padding: 20px; width: 300px">
-              <div class="card"
-            style="width:100%;  border-bottom:1px solid #B9B5BD;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <img class="card-img" src="work.png" alt="Card image" style="border-radius: 50%;width: 50%;height: 150px; margin-top: 50px;margin-left: 70px;">
-            <div class="card-body">
-              <h3 class="card-title">Title</a></h3>
-              <p class="card-text">
-              <h6>Description</h6>
-              <h6>Due date</h6>
-              <h6> status</h6>
-              </p>
-
-            </div>
-          </div>
-            </div>
-
-            <div class="col-md-6" style="padding: 20px; width: 300px">
-              <div class="card"
-            style="width:100%;  border-bottom:1px solid #B9B5BD;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <img class="card-img" src="market.png" alt="Card image" style="border-radius: 50%;width: 50%;height: 150px; margin-top: 50px;margin-left: 70px;">
-            <div class="card-body">
-              <h3 class="card-title">Title</a></h3>
-              <p class="card-text">
-              <h6>Description</h6>
-              <h6>Due date</h6>
-              <h6> status</h6>
-              </p>
-
-            </div>
-          </div>
-            </div>
-
           </div>
 
           <div class="modal" id="my_Modal">
@@ -325,7 +293,9 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
   <script>
-
+   $(document).ready(() => {
+        getTask()
+    })
 
     function new1() {
       $("#my_Modal").modal()
@@ -348,7 +318,7 @@
       })
       result = await result.json()
       console.log(result)
-      const fetchedEvents = result.events
+      const fetchedEvents = result.tasks
       let element = ""
 
       for (let i = 0; i < fetchedEvents.length; i++) {
