@@ -109,8 +109,8 @@ router.post('/analysis', async (req, res) => {
     let Work = events.filter(e => e.taskType === 'Work').length
     let Shopping = events.filter(e => e.taskType === 'Shopping').length
     let Other = events.filter(e => e.taskType === 'Other') .length
-    let result={ Personal,Work,Shopping,Other }
-        res.status(201).json({ status: 201, message: 'Analysis!', result})
+    
+        res.status(201).json({ status: 201, message: 'Analysis!',Personal,Work,Shopping,Other })
     } catch (err) {
         console.log(err)
         res.status(500).json({ status: 500, error: err })
