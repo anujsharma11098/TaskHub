@@ -303,6 +303,7 @@
 
     const token = localStorage.getItem('token')
     const email = localStorage.getItem('email')
+    console.log(email)
     if (token) {
       console.log(token)
     }
@@ -313,7 +314,7 @@
    
     let Nevents
     const getTask = async () => {
-      let result = await fetch('https://task--hub.herokuapp.com/api/todo'+ email, {
+      let result = await fetch('https://task--hub.herokuapp.com/api/todo/'+ email, {
         
       })
       result = await result.json()

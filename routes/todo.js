@@ -55,9 +55,9 @@ router.get('/:email', async (req, res) => {
 })
 
 
-router.delete('/:email', authUser, async (req, res) => {
+router.delete('/:id', authUser, async (req, res) => {
     try {
-        const task = await Task.findOne({ email: req.params.email })
+        const task = await Task.findOne({ _id: req.params.id })
         if (!task)
             return res.status(404).json({ status: 404, message: 'Task not found' })
         await complaint.remove()

@@ -109,6 +109,7 @@
       console.log(json)
       if (json.status == 200) {
         localStorage.setItem('token', json.token)
+        localStorage.setItem('email', $("#Email").val())
         location = './todo.html'
       }
       else {
