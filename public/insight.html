@@ -16,6 +16,8 @@
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.css" rel="stylesheet">
@@ -52,7 +54,7 @@
           <span>Your Task</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="insight.html">
+        <a class="nav-link" href="#">
           <i class="fas fa-chart-line"></i>
           <span>Insights</span></a>
       </li>
@@ -141,75 +143,15 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Your Task</h1>
-            <button style="border: none; background-color:white" onclick="new1();"><i class="fas fa-plus-circle"
-                style="color:green;font-size:50px"></i></button>
+            <h1 class="h3 mb-0 text-gray-800">Insights</h1>
+            
           </div>
+          <div class="row events" style="width: 500px;height: 500px;">
+            <canvas id="myChart" width="100" height="100"></canvas>
 
-
-          <div class="row events">
-           
-
-          </div>
-
-          <div class="modal" id="my_Modal">
-            <div class=" modal-dialog">
-              <div class="modal-content" style="margin-left: 400px;width:1000px ;height: 500px;margin-top: 50px;">
-
-
-                <!-- Modal body -->
-                <div class="modal-body" style="margin-left: 0px;width:1000px;height: 500px;">
-
-                  <div class="multisteps-form" style="width:1000px ;height: 500px;">
-                    <!--form panels-->
-                    <div class="row" style="margin:0px">
-                      <div class="col-12 col-lg-8 m-auto">
-                        <form class="multisteps-form__form">
-                          <!--single form panel-->
-                          <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active"
-                            data-animation="scaleIn" style="width:100% ;height: 100%;">
-                            <h3 class="multisteps-form__title">Task Info</h3>
-                            <div class="multisteps-form__content">
-                              <div class="form-row mt-4">
-                                <div class="col-12 col-sm-6">
-                                  <input class="multisteps-form__input form-control" type="text" id="tname"
-                                    placeholder="Title" />
-                                </div>
-                                <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                  <input class="multisteps-form__input form-control" type="text" placeholder="Description" id="des"/>
-                                </div>
-                              </div><br>
-                              
-                               
-                                  <div class="col-12 col-sm-6 "></div>
-                                    <select id="tType"
-                                        style="width: 100%;  padding: 12px 20px;  margin: 8px 0;  display: inline-block; border: 1px solid #ccc;  border-radius: 4px;  box-sizing: border-box;">
-                                        <option value="" disabled selected>Task Type</option>
-                                        <option value="Personal">Personal</option>
-                                        <option value="Work">Work</option>
-                                        <option value="Shopping">Shopping</option>
-
-                                        <option value="Other">Other</option><br>
-                                        <div class="form-row mt-4"><br>
-                                          <div class="col-12 col-sm-6"><br>
-                                            <input class="multisteps-form__input form-control" type="text" id="date"
-                                              placeholder="Due date ( YYYY-MM-DD)" />
-                                              <div class="button-row d-flex mt-4"style="width:300px">
-                                                <button class="btn btn-primary ml-auto " type="button" title="Next" onclick="sendInterest();">Create</button>
-                                              </div>
-                                          </div>
-                                </div>
-                                
-                              </div>
-                              
-                              
-                            
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
+        </div>
+          
+          
 
               
           </div>
@@ -279,111 +221,58 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
   <script>
-   $(document).ready(() => {
-        getTask()
-    })
-
-    function new1() {
-      $("#my_Modal").modal()
-    }
-
-    const token = localStorage.getItem('token')
+      
+        
+    
     const email = localStorage.getItem('email')
     console.log(email)
-    if (token) {
-      console.log(token)
-    }
-    else {
-      location = '/login.html'
-    }
-
-   
-    let Nevents
+    
     const getTask = async () => {
-      let result = await fetch('https://task--hub.herokuapp.com/api/todo/'+ email, {
+      let result = await fetch('https://task--hub.herokuapp.com/api/todo/analysis/'+ email, {
         
       })
       result = await result.json()
-      console.log(result)
-      const fetchedEvents = result.tasks
-      let element = ""
-
-      for (let i = 0; i < fetchedEvents.length; i++) {
-        let img
-        switch(fetchedEvents[i]['taskType']){
-          case "Personal":
-            img=`<img class="card-img" src="personal.png" alt="Card image" style="border-radius: 50%;width: 50%;height: 150px; margin-top: 50px;margin-left: 70px;">`
-            break;
-          case "Work":
-            img=`<img class="card-img" src="work.png" alt="Card image" style="border-radius: 50%;width: 50%;height: 150px; margin-top: 50px;margin-left: 70px;">`
-            break;
-          case "Shopping":
-            img=`<img class="card-img" src="market.png" alt="Card image" style="border-radius: 50%;width: 50%;height: 150px; margin-top: 50px;margin-left: 70px;">`
-            break;
-          case "Other":
-            img=`<img class="card-img" src="network.png" alt="Card image" style="border-radius: 50%;width: 50%;height: 150px; margin-top: 50px;margin-left: 70px;">`
-            break;
-
-        }
-        let st
-        switch(fetchedEvents[i]['status']){
-          case 0:
-            st=`<h6 style="color:red"> Ongoing</h6>`
-            break;
-          case 1:
-            st=`<h6 style="color:green"> Completed</h6>`
-            break;
-          
-
-        }
-        
-        let e = `<div class="col-md-6" style="padding: 20px; width: 300px">
-              <div class="card"
-            style="width:100%;  border-bottom:1px solid #B9B5BD;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <a onclick="alert("h");"><i class="far fa-trash-alt" style="margin-left:220px;margin-top:10px"></i></a>
-            ${img}
-            <div class="card-body">
-              <h3 class="card-title">${fetchedEvents[i].task}</a></h3>
-              <p class="card-text">
-              <h6>${fetchedEvents[i].description}</h6>
-              <h6>${fetchedEvents[i].dueDate}</h6>
-              ${st}
-              </p>
-
-            </div>
-          </div>
-            </div>`
-        element = element + e
-      }
-      $('.events').empty()
-      $('.events').append(element)
-      Nevents = element
-    }
-
-    const sendInterest = async () => {
-    let obj ={
-      "task" : $('#tname').val(),
-    "description":$('#des').val(),
-    "dueDate" : $('#date').val(),
-    "taskType":$('#tType').val(),
-    'Authorization': token,
-    "status":"0"
+      
     }
     
-    let result = await fetch('https://task--hub.herokuapp.com/api/todo', {
-        method :"POST",
-        headers : {
-          
-          'Content-Type' : 'application/json'
+    var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Personal', 'Work', 'Shopping', 'Other', ],
+            datasets: [{
+                label: '# of Votes',
+                data: [ 3, 2, 1, 5],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
         },
-        body : JSON.stringify(obj)
-    })
-    const json = await result.json()
-    console.log(json)
-    
-
-}
-  </script>
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    </script>
 
 </body>
 
