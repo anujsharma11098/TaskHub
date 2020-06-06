@@ -55,6 +55,26 @@ router.get('/:email', async (req, res) => {
 })
 
 
+router.get('/analysis/:email',authUser, async (req, res) => {
+    
+    let events
+
+    events = await interest.find({
+        email:req.params.email
+    })
+
+    let Personal = events.filter(e => e.registrationType === 'Personal').length
+    let Work = events.filter(e => e.registrationType === 'Work').length
+    let Shopping = events.filter(e => e.registrationType === 'Shopping').length
+    let Other = events.filter(e => e.registrationType === 'Other') .length
+    console.log(Personal)
+    console.log(Work)
+    console.log(Shopping)
+    console.log(Other)
+
+    res.json({ status: 200, Personal,Work,Shopping,Other })
+})
+
 router.delete('/:id', authUser, async (req, res) => {
     try {
         const task = await Task.findOne({ _id: req.params.id })
