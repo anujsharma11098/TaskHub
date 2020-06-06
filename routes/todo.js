@@ -92,6 +92,53 @@ router.get('/status/:email', async (req, res) => {
     res.json({ status: 200, Ongoing,Completed })
 })
 
+
+
+router.post('/analysis', async (req, res) => {
+    // console.log(req.body)
+    // res.json({ status: 200, message: 'Done' })
+    const { email } = req.body
+    try {
+        let events
+
+    events = await Task.find({
+        email:email
+    })
+
+    let Personal = events.filter(e => e.taskType === 'Personal').length
+    let Work = events.filter(e => e.taskType === 'Work').length
+    let Shopping = events.filter(e => e.taskType === 'Shopping').length
+    let Other = events.filter(e => e.taskType === 'Other') .length
+    
+        res.status(201).json({ status: 201, message: 'Analysis!',Personal,Work,Shopping,Other })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ status: 500, error: err })
+    }
+})
+
+
+router.post('/status', async (req, res) => {
+    // console.log(req.body)
+    // res.json({ status: 200, message: 'Done' })
+    const { email } = req.body
+    try {
+        let events
+
+    events = await Task.find({
+        email:email
+    })
+
+    let Ongoing = events.filter(e => e.status === 0).length
+    let Completed = events.filter(e => e.status === 1).length
+    
+        res.status(201).json({ status: 201, message: 'Status!',Ongoing,Completed })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ status: 500, error: err })
+    }
+})
+
 router.delete('/:id', authUser, async (req, res) => {
     try {
         const task = await Task.findOne({ _id: req.params.id })

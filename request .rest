@@ -47,3 +47,21 @@ Content-Type: application/json
     "status":"0",
     "taskType":"Work"
 }
+
+
+###
+POST http://localhost:5000/api/todo/analysis
+Content-Type: application/json
+
+{
+    "email":"bhavitkanthalia16@gmail.com"
+}
+
+###
+POST http://localhost:5000/api/todo/status
+Content-Type: application/json
+
+{
+    "email":"bhavitkanthalia16@gmail.com"
+}
+
