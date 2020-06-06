@@ -14,7 +14,7 @@ router.post('/', authUser, async (req, res) => {
     const { task, dueDate, description, taskType, status } = req.body
     try {
         await Task.create({
-            userId: req.user._id, task, dueDate, description, taskType, status
+            email: req.user.email, task, dueDate, description, taskType, status
         })
         res.status(201).json({ status: 201, message: 'Task created Successfully!' })
     } catch (err) {
@@ -45,19 +45,19 @@ router.get('/', async (req, res) => {
 })
 
 
-router.get('/:id', async (req, res) => {
+router.get('/:email', async (req, res) => {
     let tasks
     tasks = await Task.find({
-        _id : req.params.id
+        email : req.params.email
     })
 
     res.json({ status: 200, tasks })
 })
 
 
-router.delete('/:id', authUser, async (req, res) => {
+router.delete('/:email', authUser, async (req, res) => {
     try {
-        const task = await Task.findOne({ _id: req.params.id })
+        const task = await Task.findOne({ email: req.params.email })
         if (!task)
             return res.status(404).json({ status: 404, message: 'Task not found' })
         await complaint.remove()

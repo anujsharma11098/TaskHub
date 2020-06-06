@@ -25,7 +25,7 @@ GET http://localhost:5000/api/todo
 ###
 ### Get all Task by id
 
-GET http://localhost:5000/api/todo/5edb2556a28b632540c4da3e
+GET http://localhost:5000/api/todo/anujsharma11098@gmail.com
 
 
 ### Task registered
