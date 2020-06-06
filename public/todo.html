@@ -332,6 +332,7 @@
     }
 
     const token = localStorage.getItem('token')
+    const email = localStorage.getItem('email')
     if (token) {
       console.log(token)
     }
@@ -342,10 +343,8 @@
    
     let Nevents
     const getTask = async () => {
-      let result = await fetch('https://task--hub.herokuapp.com/api/', {
-        headers: {
-          'Authorization': token
-        }
+      let result = await fetch('https://task--hub.herokuapp.com/api/todo'+ email, {
+        
       })
       result = await result.json()
       console.log(result)
@@ -354,16 +353,16 @@
 
       for (let i = 0; i < fetchedEvents.length; i++) {
         
-        let e = `<div class="col-md-6">
+        let e = `<div class="col-md-6" style="padding: 20px; width: 300px">
               <div class="card"
-            style="width:50%;  border-bottom:1px solid #B9B5BD;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <img class="card-img" src="card/thor.jpg" alt="Card image">
+            style="width:100%;  border-bottom:1px solid #B9B5BD;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <img class="card-img" src="work.png" alt="Card image" style="border-radius: 50%;width: 50%;height: 150px; margin-top: 50px;margin-left: 70px;">
             <div class="card-body">
-              <h3 class="card-title"><a href="index.html?id=${fetchedEvents[i]._id}">${fetchedEvents[i].eventName}</a></h3>
+              <h3 class="card-title">${fetchedEvents[i].task}</a></h3>
               <p class="card-text">
-              <h6>Date : ${fetchedEvents[i].date}</h6>
-              <h6>Venue :${fetchedEvents[i].venue}</h6>
-              <h6>${fetchedEvents[i].payment} </h6>
+              <h6>${fetchedEvents[i].description}</h6>
+              <h6>${fetchedEvents[i].dueDate}</h6>
+              <h6> ${fetchedEvents[i].status}</h6>
               </p>
 
             </div>

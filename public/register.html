@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Register</title>
+  <title>Register</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -21,7 +21,7 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <style>
     .bg-register-image {
-      background: url(tron.png);
+      background: url(tron.png) no-repeat;
     }
   </style>
 
@@ -105,7 +105,7 @@
         'phoneNumber': $("#no").val(),
         'password': $('#pass').val()
       }
-      let result = await fetch('https://event--registration.herokuapp.com/api/user/register', {
+      let result = await fetch('https://task--hub.herokuapp.com/api/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

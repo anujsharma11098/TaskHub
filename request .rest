@@ -13,7 +13,7 @@ POST http://localhost:5000/api/user/login
 Content-Type: application/json
 
 {
-    "email": "anujsharma11098@gmail.com",
+    "email": "bhavitkanthalia16@gmail.com",
     "password": "password"
 }
 
@@ -31,10 +31,10 @@ GET http://localhost:5000/api/todo/anujsharma11098@gmail.com
 ### Task registered
 
 POST http://localhost:5000/api/todo
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wiX2lkXCI6XCI1ZWRiMjM0OGU5NjYzMzFiMTA3ZmUwZWFcIixcImZ1bGxOYW1lXCI6XCJBbnVqIFNoYXJtYVwiLFwicGhvbmVOdW1iZXJcIjo3NzI2MDYyNTQwLFwiZW1haWxcIjpcImFudWpzaGFybWExMTA5OEBnbWFpbC5jb21cIixcInBhc3N3b3JkXCI6XCIkMmEkMTAkVzZYdW85cTJNeDR4ZjNscUsuY0FlZVZFVFhWWGVQZ1lXbS5rY3JMNVl2VFhhZXJhdjZpZi5cIixcImNyZWF0ZWRBdFwiOlwiMjAyMC0wNi0wNlQwNTowMjowMC40MTBaXCIsXCJ1cGRhdGVkQXRcIjpcIjIwMjAtMDYtMDZUMDU6MDI6MDAuNDEwWlwiLFwiX192XCI6MH0iLCJpYXQiOjE1OTE0MTk5NzJ9.1L9fI7RpnFr1Q6_kNRw-ne59FGNTtThhkwDhXUch07s
 Content-Type: application/json
 
 {
+    "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoie1wiX2lkXCI6XCI1ZWRiMjM0OGU5NjYzMzFiMTA3ZmUwZWFcIixcImZ1bGxOYW1lXCI6XCJBbnVqIFNoYXJtYVwiLFwicGhvbmVOdW1iZXJcIjo3NzI2MDYyNTQwLFwiZW1haWxcIjpcImFudWpzaGFybWExMTA5OEBnbWFpbC5jb21cIixcInBhc3N3b3JkXCI6XCIkMmEkMTAkVzZYdW85cTJNeDR4ZjNscUsuY0FlZVZFVFhWWGVQZ1lXbS5rY3JMNVl2VFhhZXJhdjZpZi5cIixcImNyZWF0ZWRBdFwiOlwiMjAyMC0wNi0wNlQwNTowMjowMC40MTBaXCIsXCJ1cGRhdGVkQXRcIjpcIjIwMjAtMDYtMDZUMDU6MDI6MDAuNDEwWlwiLFwiX192XCI6MH0iLCJpYXQiOjE1OTE0MTk5NzJ9.1L9fI7RpnFr1Q6_kNRw-ne59FGNTtThhkwDhXUch07s",
     "task" : "Project",
     "description":"Complete the work before deadline",
     "dueDate" : "2020-06-20",
