@@ -182,7 +182,7 @@
                               
                                
                                   <div class="col-12 col-sm-6 "></div>
-                                    <select id="region"
+                                    <select id="tType"
                                         style="width: 100%;  padding: 12px 20px;  margin: 8px 0;  display: inline-block; border: 1px solid #ccc;  border-radius: 4px;  box-sizing: border-box;">
                                         <option value="" disabled selected>Task Type</option>
                                         <option value="Personal">Personal</option>
@@ -350,18 +350,17 @@
 
     const sendInterest = async () => {
     let obj ={
-      "eventName" : $('#ename').val(),
-    "venue":$('#ven').val(),
-    "date" : $('#date').val(),
-    "payment":$('#pay').val(),
-    "eventType":$('#etype').val()
-        
+      "task" : $('#tname').val(),
+    "description":$('#des').val(),
+    "dueDate" : $('#date').val(),
+    "taskType":$('#tType').val(),
+    'Authorization': token,
     }
     
-    let result = await fetch('https://event--registration.herokuapp.com/api/createEvent', {
+    let result = await fetch('https://task--hub.herokuapp.com/api/todo', {
         method :"POST",
         headers : {
-          'Authorization': token,
+          
           'Content-Type' : 'application/json'
         },
         body : JSON.stringify(obj)
