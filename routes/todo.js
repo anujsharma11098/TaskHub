@@ -75,6 +75,23 @@ router.get('/analysis/:email', async (req, res) => {
     res.json({ status: 200, Personal,Work,Shopping,Other })
 })
 
+router.get('/status/:email', async (req, res) => {
+    
+    let events
+
+    events = await Task.find({
+        email:req.params.email
+    })
+
+    let Ongoing = events.filter(e => e.status === '0').length
+    let Completed = events.filter(e => e.status === '1').length
+    console.log(Ongoing)
+    console.log(Completed)
+    
+
+    res.json({ status: 200, Ongoing,Completed })
+})
+
 router.delete('/:id', authUser, async (req, res) => {
     try {
         const task = await Task.findOne({ _id: req.params.id })

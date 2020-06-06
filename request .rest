@@ -31,6 +31,9 @@ GET http://localhost:5000/api/todo/anujsharma11098@gmail.com
 ###
 GET http://localhost:5000/api/todo/analysis/anujsharma11098@gmail.com
 
+### status 
+GET http://localhost:5000/api/todo/status/bhavitkanthalia16@gmail.com
+
 ### Task registered
 
 POST http://localhost:5000/api/todo
