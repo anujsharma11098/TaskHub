@@ -63,10 +63,10 @@ router.get('/analysis/:email', async (req, res) => {
         email:req.params.email
     })
 
-    let Personal = events.filter(e => e.registrationType === 'Personal').length
-    let Work = events.filter(e => e.registrationType === 'Work').length
-    let Shopping = events.filter(e => e.registrationType === 'Shopping').length
-    let Other = events.filter(e => e.registrationType === 'Other') .length
+    let Personal = events.filter(e => e.taskType === 'Personal').length
+    let Work = events.filter(e => e.taskType === 'Work').length
+    let Shopping = events.filter(e => e.taskType === 'Shopping').length
+    let Other = events.filter(e => e.taskType === 'Other') .length
     console.log(Personal)
     console.log(Work)
     console.log(Shopping)
