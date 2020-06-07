@@ -221,7 +221,9 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
   <script>
-      
+      $(document).ready(() => {
+        getTask()
+    })
         
     
     const email = localStorage.getItem('email')
@@ -232,17 +234,14 @@
         
       })
       result = await result.json()
-      
-    }
-    
-    var ctx = document.getElementById('myChart').getContext('2d');
+      var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['Personal', 'Work', 'Shopping', 'Other', ],
             datasets: [{
                 label: '# of Votes',
-                data: [ 3, 2, 1, 5],
+                data: [ result['Personal'], result['Work'], result['Shopping'], result['Other']],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -272,6 +271,9 @@
             }
         }
     });
+    }
+    
+    
     </script>
 
 </body>
