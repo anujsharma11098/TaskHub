@@ -34,9 +34,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Login][product-login]](https://github.com/anujsharma11098/TaskHub/blob/master/images/tasklogin.png)
-[![Task ][product-task]](https://github.com/anujsharma11098/TaskHub/blob/master/images/task.png)
-[![Insight][product-insight]](https://github.com/anujsharma11098/TaskHub/blob/master/images/taskInsight.png)
+(https://github.com/anujsharma11098/TaskHub/blob/master/images/tasklogin.png)
+(https://github.com/anujsharma11098/TaskHub/blob/master/images/task.png)
+(https://github.com/anujsharma11098/TaskHub/blob/master/images/taskInsight.png)
 The idea is to create a web based and a mobile based application which can make note of your tasks which the user  have to complete or you have already completed.
 
 The application will be designed with an easy and material design inspired user interface so as to make it easy for people to use it.
@@ -46,7 +46,7 @@ The application gives graphical analysis of tasks which helps in assessment.
 
 ### Built With
 
-* * [Bootstrap](https://getbootstrap.com)
+* [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
 * [Nodejs](https://nodejs.com)
 
@@ -126,13 +126,6 @@ Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
 Project Link: [https://github.com/github_username/repo](https://github.com/github_username/repo)
 
 
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-* []()
-* []()
-* []()
 
 
 
