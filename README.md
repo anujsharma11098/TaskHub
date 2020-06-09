@@ -69,7 +69,8 @@ npm install npm@latest -g
 1. Get a free MongoDb_URL at [MongoDB](https://mongodb.com)
 2. Clone the repo
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/anujsharma11098/TaskHub.git
+```
 ```
 3. Install NPM packages
 ```sh
